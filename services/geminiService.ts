@@ -21,6 +21,11 @@ Guidelines:
 
 export const getAIResponse = async (userMessage: string, history: { role: string, content: string }[]) => {
   try {
+    if (!process.env.API_KEY) {
+      console.warn("API Key is missing.");
+      return "I apologize, but I am currently offline. Please contact Dhaval directly via WhatsApp.";
+    }
+
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: [
