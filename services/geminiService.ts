@@ -1,7 +1,8 @@
 import { GoogleGenAI } from "@google/genai";
 import { PROJECTS } from "../constants";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Initialize with env variable directly. Use fallback empty string to prevent constructor error if undefined.
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || "" });
 
 const systemInstruction = `
 You are a calm, expert AI systems consultant assisting visitors on Dhaval Balsara's portfolio.
@@ -21,6 +22,7 @@ Guidelines:
 
 export const getAIResponse = async (userMessage: string, history: { role: string, content: string }[]) => {
   try {
+    // Check if key is actually present before making the call
     if (!process.env.API_KEY) {
       console.warn("API Key is missing.");
       return "I apologize, but I am currently offline. Please contact Dhaval directly via WhatsApp.";
