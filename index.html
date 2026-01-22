@@ -14,6 +14,7 @@
       scroll-behavior: smooth;
       margin: 0;
       padding: 0;
+      background-color: #ffffff;
     }
     h1, h2, h3, h4 {
       font-family: 'Outfit', sans-serif;
@@ -35,10 +36,20 @@
     #root {
       min-height: 100vh;
     }
+    /* Simple loader if JS takes time */
+    .initial-load {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Outfit', sans-serif;
+      color: #10b981;
+      font-weight: 500;
+    }
   </style>
   <script>
-    // Polyfill process for browser environments to prevent crashes
-    window.process = window.process || { env: { API_KEY: '' } };
+    // Robust polyfill for process.env
+    window.process = { env: { API_KEY: '' } };
   </script>
 <script type="importmap">
 {
@@ -55,8 +66,12 @@
 </script>
 </head>
 <body class="bg-white text-gray-900 selection:bg-emerald-100 selection:text-emerald-900">
-  <div id="root"></div>
-  <!-- Relative path is required for GitHub Pages subfolders -->
-  <script type="module" src="./index.tsx"></script>
+  <div id="root">
+    <div class="initial-load">
+      Initializing System...
+    </div>
+  </div>
+  <!-- Vite entry point: must be /index.tsx for standard build resolution -->
+  <script type="module" src="/index.tsx"></script>
 </body>
 </html>
