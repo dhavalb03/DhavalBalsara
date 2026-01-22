@@ -47,10 +47,6 @@
       font-weight: 500;
     }
   </style>
-  <script>
-    // Robust polyfill for process.env
-    window.process = { env: { API_KEY: '' } };
-  </script>
 <script type="importmap">
 {
   "imports": {
@@ -71,7 +67,7 @@
       Initializing System...
     </div>
   </div>
-  <!-- Vite entry point: must be /index.tsx for standard build resolution -->
-  <script type="module" src="/index.tsx"></script>
+  <!-- Vite entry point: using relative path for safety -->
+  <script type="module" src="./index.tsx"></script>
 </body>
 </html>
