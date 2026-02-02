@@ -13,9 +13,9 @@ export default defineConfig(({ mode }) => {
       emptyOutDir: true,
     },
     define: {
-      // Safely inject the API key and polyfill process.env
+      // Safely inject ONLY the API key. 
+      // Do NOT define 'process.env': {} as it breaks React's ability to check NODE_ENV.
       'process.env.API_KEY': JSON.stringify(env.API_KEY || ''),
-      'process.env': {}
     },
     server: {
       port: 3000,

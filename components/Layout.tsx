@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Icons, WHATSAPP_LINK } from '../constants';
+import { Icons, WHATSAPP_LINK, LINKEDIN_LINK } from '../constants';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
@@ -60,9 +59,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </p>
           </div>
           <div className="flex gap-8">
-            <a href="#" className="text-gray-400 hover:text-emerald-600 transition-colors">LinkedIn</a>
-            <a href="#" className="text-gray-400 hover:text-emerald-600 transition-colors">Twitter</a>
-            <a href="#" className="text-gray-400 hover:text-emerald-600 transition-colors">GitHub</a>
+            <a href={LINKEDIN_LINK} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-emerald-600 transition-colors">LinkedIn</a>
           </div>
         </div>
         <div className="max-w-6xl mx-auto px-6 mt-8 pt-8 border-t border-gray-200/50 flex flex-col md:flex-row justify-between gap-4 text-xs text-gray-400">

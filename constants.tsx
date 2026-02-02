@@ -1,11 +1,55 @@
-
 import React from 'react';
 import { Project } from './types';
 
 export const WHATSAPP_NUMBER = "919420633508";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
+export const LINKEDIN_LINK = "https://www.linkedin.com/in/dhavalbalsara/";
 
 export const PROJECTS: Project[] = [
+  {
+    id: 'segmind-gtm',
+    title: 'n8n GTM Automation for Segmind',
+    problem: 'Segmind, a serverless inference platform (similar to Fal.ai), needed to expand their user base beyond pure coders and capture the growing low-code ops market.',
+    solution: 'Led the GTM initiative by building and publishing official Segmind workflows on n8n, driving traction through ready-to-use templates.',
+    metrics: [
+      { label: 'Workflow Clones', value: '1,500+' },
+      { label: 'User Signups', value: '+25%' }
+    ],
+    fullStory: {
+      problemDeep: "While Segmind offered fast, cost-effective inference for models like SDXL and Flux, they were missing out on the massive community of 'AI Operators'—founders and automators using tools like n8n and Zapier. Competitors were gaining ground simply by being easier to integrate into no-code workflows.",
+      solutionDeep: "We executed a 'Usage-Led' GTM strategy. Instead of just releasing API docs, we built and published the official Segmind integration on n8n. To drive immediate traction, I designed a suite of viral 'Blueprint' workflows—complex GenAI pipelines (like consistency-preserving character generators) that users could clone and run instantly.",
+      flow: [
+        { step: "Integration Strategy", description: "Mapped high-demand models (Flux, SDXL) to modular n8n nodes for drag-and-drop usage." },
+        { step: "Blueprint Creation", description: "Built plug-and-play workflows (e.g., 'E-com Product Photography Generator') to solve specific business use cases." },
+        { step: "Community GTM", description: "Published templates to the n8n ecosystem to funnel low-code builders directly into Segmind's billing dashboard." }
+      ],
+      impactSummary: "The n8n integration opened a new revenue channel, converting non-technical founders into recurring power users of the Segmind API."
+    },
+    category: 'GTM Strategy',
+    tags: ['n8n', 'Low-Code', 'Growth Engineering']
+  },
+  {
+    id: 'ecom-seo-automation',
+    title: 'SEO Blog Automation for E-com',
+    problem: 'A D2C brand with 2,000+ SKUs was missing out on organic traffic due to thin content coverage.',
+    solution: 'Programmatic SEO agent that analyzes competitor gaps and generates high-ranking articles at scale.',
+    metrics: [
+      { label: 'Organic Traffic', value: '+240%' },
+      { label: 'Cost/Article', value: '< $2' }
+    ],
+    fullStory: {
+      problemDeep: "For large e-commerce catalogs, writing unique, value-add blog posts to capture long-tail search traffic is prohibitively expensive and slow with human writers alone.",
+      solutionDeep: "We deployed a 'Programmatic SEO' agent. It doesn't just write; it researches. It scans top-ranking competitor articles for a specific keyword, identifies content gaps, and structures a comprehensive article that satisfies user intent better than existing results.",
+      flow: [
+        { step: "Keyword Analysis", description: "The agent identifies low-competition, high-intent keywords related to the product catalog." },
+        { step: "Research & Structure", description: "It outlines an article based on the top 10 search results to ensure topical authority." },
+        { step: "Drafting & Linking", description: "The article is written with internal links automatically inserted to drive product sales." }
+      ],
+      impactSummary: "The brand now dominates search results for niche product queries, driving consistent revenue without ad spend."
+    },
+    category: 'Growth Engineering',
+    tags: ['Programmatic SEO', 'E-commerce', 'Automation']
+  },
   {
     id: 'voice-real-estate',
     title: 'AI Voice Agent for Real Estate',

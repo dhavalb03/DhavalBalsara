@@ -1,8 +1,16 @@
 import { GoogleGenAI } from "@google/genai";
 import { PROJECTS } from "../constants";
 
-// Initialize with env variable directly. Use fallback empty string to prevent constructor error if undefined.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || "" });
+// Lazy initialization to prevent app crash if env vars are missing at startup
+let ai: GoogleGenAI | null = null;
+
+const getAIClient = () => {
+  if (!ai) {
+    // Initialize only when requested
+    ai = new GoogleGenAI({ apiKey: process.env.API_KEY || "" });
+  }
+  return ai;
+};
 
 const systemInstruction = `
 You are a calm, expert AI systems consultant assisting visitors on Dhaval Balsara's portfolio.
@@ -22,13 +30,14 @@ Guidelines:
 
 export const getAIResponse = async (userMessage: string, history: { role: string, content: string }[]) => {
   try {
-    // Check if key is actually present before making the call
     if (!process.env.API_KEY) {
       console.warn("API Key is missing.");
       return "I apologize, but I am currently offline. Please contact Dhaval directly via WhatsApp.";
     }
 
-    const response = await ai.models.generateContent({
+    const client = getAIClient();
+    
+    const response = await client.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: [
         ...history.map(m => ({ role: m.role === 'user' ? 'user' : 'model', parts: [{ text: m.content }] })),
