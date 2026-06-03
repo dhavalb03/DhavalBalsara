@@ -48,7 +48,7 @@ const About: React.FC = () => {
               <div className="md:col-span-4 sticky top-32">
                 <div className="bg-gray-50 rounded-3xl p-8 border border-gray-100">
                   <div className="w-32 h-32 bg-emerald-100 rounded-full mb-6 mx-auto overflow-hidden ring-4 ring-white shadow-lg">
-                    <img src="dhaval.jpg" alt="Dhaval Balsara" className="w-full h-full object-cover" />
+                    <img src="pages/dhaval.png" alt="Dhaval Balsara" className="w-full h-full object-cover" />
                   </div>
                   <div className="text-center space-y-4">
                     <div>

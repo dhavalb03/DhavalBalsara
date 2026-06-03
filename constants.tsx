@@ -7,6 +7,72 @@ export const LINKEDIN_LINK = "https://www.linkedin.com/in/dhavalbalsara/";
 
 export const PROJECTS: Project[] = [
   {
+    id: 'chat-with-your-data',
+    title: 'Chat with Your Data (RAG)',
+    problem: 'Critical knowledge from client and internal team meetings was getting lost in call recordings, making it difficult to recall decisions or project context later.',
+    solution: 'Currently in development: A RAG agent designed to securely ingest transcripts and allow instant querying of any context discussed in the last two weeks.',
+    metrics: [
+      { label: 'Status', value: 'Building' },
+      { label: 'Target Workflow', value: 'Team & Client' }
+    ],
+    fullStory: {
+      problemDeep: "After a meeting ends, the resulting video recording and transcript simply sit in a database. Whenever the team needed to confirm what a client requested regarding a specific feature, someone had to manually rewatch a 45-minute call or dig through lengthy transcripts. This caused delays and internal friction.",
+      solutionDeep: "I am currently building a dedicated RAG AI Agent that allows teams to 'Chat with their Data'. This agent automatically processes all post-meeting transcripts, segments the knowledge, and indexes it within a vector database. Users can now simply ask natural language questions like 'What did the client say about the Q3 timeline?' and receive precise, sourced answers instantly.",
+      flow: [
+        { step: "Data Ingestion (In Progress)", description: "Meeting transcripts (client and internal) are automatically fetched upon call completion." },
+        { step: "Vector Processing (In Progress)", description: "Transcripts are cleaned, chunked, and securely indexed into a vector database for rapid retrieval." },
+        { step: "Intelligent Querying (In Progress)", description: "A conversational interface where team members can ask for specific context, decisions, or summaries based on the stored data." }
+      ],
+      impactSummary: "Once completed, the team will completely eliminate manual transcription lookup. Any decision or request made in the past two weeks will be surfaced instantly."
+    },
+    category: 'RAG Systems',
+    tags: ['Vector DB', 'LangChain', 'OpenAI', 'Automation']
+  },
+  {
+    id: 'automated-client-reporting',
+    title: 'Automated Client Reporting System',
+    problem: 'The team was spending countless hours every alternate week manually compiling progress reports for each client.',
+    solution: 'An automated workflow connecting directly to the database to generate and distribute comprehensive bi-weekly progress reports.',
+    metrics: [
+      { label: 'Manual Work', value: '-100%' },
+      { label: 'Report Accuracy', value: '100%' }
+    ],
+    fullStory: {
+      problemDeep: "Communicating progress to clients is crucial for retention, but summarizing what work was done, how much time it took, and overall milestones across multiple clients is incredibly time-consuming. The team manually queried databases and compiled these metrics into documents by hand every two weeks.",
+      solutionDeep: "I developed a secure automation pipeline that triggers every alternate week. It authenticates with the central database, aggregates time logs, task statuses, and progress metrics on a per-client basis, and formats this raw data into a polished, easily digestible report.",
+      flow: [
+        { step: "Scheduled Trigger", description: "A cron-job initiates the workflow every alternate week." },
+        { step: "Data Aggregation", description: "The system connects securely to the database to pull task completion metrics, time spent, and milestone progress." },
+        { step: "Formatting & Dispatch", description: "Raw data is converted into a structured report document and automatically routed to the necessary stakeholders." }
+      ],
+      impactSummary: "Client communication is now hyper-consistent and transparent, saving the internal team hours of administrative work each reporting cycle."
+    },
+    category: 'Database Automation',
+    tags: ['Cron Jobs', 'SQL/NoSQL', 'Reporting Workflow']
+  },
+  {
+    id: 'ai-omnichannel-solution',
+    title: 'AI Omnichannel Content Pipeline',
+    problem: 'Marketing teams struggle to repurpose core content, leaving valuable company blogs underutilized across different social channels.',
+    solution: 'An intelligent pipeline that automatically converts a single company blog into video scripts, LinkedIn carousels, and Substack newsletters.',
+    metrics: [
+      { label: 'Content Volume', value: '10x' },
+      { label: 'Prep Time', value: '-90%' }
+    ],
+    fullStory: {
+      problemDeep: "Writing a high-quality company blog takes significant effort, but treating that blog as a single deliverable yields poor ROI. To capture attention on LinkedIn, YouTube, or email newsletters, that single long-form piece must be manually rewritten and reformatted for each platform's unique style.",
+      solutionDeep: "I built an AI Omnichannel Solution that ingests a published blog post and intelligently spins it off into multiple tailored formats. Instead of just summarizing, it adapts the tone—producing personal-branding focused LinkedIn posts, structured video scripts, and long-form Substack newsletter drafts.",
+      flow: [
+        { step: "Blog Ingestion", description: "The system reads the newly published company blog post." },
+        { step: "Tone Adaptation", description: "Parallel LLM workflows analyze the content to extract core insights while matching specific platform tones." },
+        { step: "Asset Generation", description: "The pipeline outputs a complete bundle: video script, LinkedIn carousel copy, and a newsletter draft." }
+      ],
+      impactSummary: "Founders and marketing teams can now stretch one piece of content across their entire online presence, drastically increasing reach with near-zero extra effort."
+    },
+    category: 'Marketing Automation',
+    tags: ['Content AI', 'LLM Workflow', 'Omnichannel']
+  },
+  {
     id: 'segmind-gtm',
     title: 'n8n GTM Automation for Segmind',
     problem: 'Segmind, a serverless inference platform (similar to Fal.ai), needed to expand their user base beyond pure coders and capture the growing low-code ops market.',
@@ -115,28 +181,6 @@ export const PROJECTS: Project[] = [
     },
     category: 'HR Tech',
     tags: ['LangChain', 'Vector DB', 'Automation']
-  },
-  {
-    id: 'linkedin-assistant',
-    title: 'AI LinkedIn Content Assistant',
-    problem: 'Founders struggled to maintain a consistent presence without spending hours on drafts.',
-    solution: 'Intelligent planning and drafting tool that mimics the user\'s unique voice.',
-    metrics: [
-      { label: 'Content ROI', value: '3x Reach' },
-      { label: 'Prep Time', value: '-80%' }
-    ],
-    fullStory: {
-      problemDeep: "Consistency is key on LinkedIn, but authentic storytelling is difficult to outsource and time-consuming to do internally.",
-      solutionDeep: "A 'Digital Twin' writing assistant that uses a knowledge base of the founder's previous successful posts to generate high-context drafts.",
-      flow: [
-        { step: "Idea Extraction", description: "Daily 5-minute voice notes are transcribed and turned into content pillars." },
-        { step: "Drafting", description: "Three variations are generated for each post: bold, inquisitive, and narrative." },
-        { step: "Approval", description: "A simple dashboard allows for one-click publishing to LinkedIn." }
-      ],
-      impactSummary: "Clients reported higher engagement rates as the AI preserved their personal 'tone of voice' better than standard copywriters."
-    },
-    category: 'Marketing',
-    tags: ['Personal Branding', 'LLM Fine-tuning']
   }
 ];
 
